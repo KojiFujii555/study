@@ -1,0 +1,414 @@
+@charset "UTF-8";
+/*-------------------------------共通*/
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-size:18px;
+}
+
+img {
+  width:100%;
+  height:auto;
+}
+/* ページ全体の設定 */
+body {
+  display: grid;
+  background-color: #fff;
+  font-family: serif;
+  grid-row-gap: 20px;
+  grid-column-gap: 20px;
+  grid-template-columns: 20px 1fr 1fr 1fr 20px;
+  grid-template-rows:
+                [head] auto
+                [nav] auto
+                [contents] auto
+                [footer] 100px
+}
+
+/* -------------パーツの配置---------------- */
+body > * {
+  grid-column: 2 / -2;
+}
+/* ヘッダー */
+header {
+  grid-row:head;
+  grid-column: 1 / -1;
+}
+/* ナビ */
+nav {
+  grid-row: nav;
+  grid-column: 1 / -1;
+}
+/* コンテンツ */
+.contents {
+  grid-row: contents;
+  grid-column: 2 / 4;
+}
+
+.sub {
+  grid-row: contents;
+  grid-column: 4 / 5;
+}
+/* フッター */
+footer {
+  grid-row: footer;
+  grid-column: 1 / -1;
+}
+/* --------------ヘッダー-------------- */
+.top {
+  position: relative;
+}
+
+.top_sentence {
+  position: absolute;
+  top: 2vw;
+  left: 2vw;
+  font-size: 4vw;
+  color: white;
+  background-color: rgb(51,51,51,0.8);
+  padding: 10px 30px;
+  letter-spacing: 0.1em;
+  line-height: 1.8em;
+  font-weight: bold;
+}
+
+.top_logo {
+  position: absolute;
+  top: 10vw;
+  right: 5vw;
+  font-size: 6.5vw;
+  color: white;
+  font-family: 'Parisienne', cursive;
+  transform: rotate(-15deg);
+  -moz-transform: rotate(-15deg);
+  -webkit-transform: rotate(-15deg);
+  line-height: 1em;
+}
+
+header span {
+  font-size: 4.5vw;
+  color: red;
+}
+
+/* --------------ナビ-------------- */
+#nav-input {
+  display: none;
+}
+
+
+nav {
+  display: flex;
+  background-color: rgb(183, 214, 163, 0.8);
+  margin-top: -8px;
+  position: relative;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+}
+
+nav ul {
+  display: grid;
+  list-style: none;
+  padding:0;
+  grid-auto-flow: column;
+  grid-column-gap: 1vw;
+  column-gap: 2vw;
+  font-size: 1.5vw;
+  font-family: serif;
+  margin-right: 5em;
+
+}
+nav li a {
+  text-decoration: none;
+  align-self: end;
+  padding: 15px 20px;
+  color: #333;
+  display: inline-block;
+}
+nav li a:hover{
+  cursor: pointer;
+  background-color: rgb(183, 214, 163);
+}
+
+h1 {
+  font-size: 2.5vw;
+  font-family: "Lucida Grande", "segoe UI", "ヒラギノ丸ゴ ProN W4", "Hiragino Maru Gothic ProN", Meiryo, Arial, sans-serif;
+  position: absolute;
+  left: 70px;
+}
+
+/* --------------コンテンツ----------------- */
+.content {
+  background-color: rgb(183, 214, 163, 0.5);
+  padding: 20px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.content:last-child{
+  margin-bottom: 0;
+}
+
+.content:nth-child(even) {
+  background-color: rgb(167, 167, 167, 0.5);
+}
+.content ul, .content p {
+  list-style: none;
+  padding: 20px;
+  border-top: 2px dashed #fff;
+  border-bottom: 2px dashed #fff;
+}
+
+.content h2 {
+  font-size: 35px;
+  margin-bottom: 15px;
+  font-family:    "Lucida Grande", "segoe UI", "ヒラギノ丸ゴ ProN W4", "Hiragino Maru Gothic ProN", Meiryo, Arial, sans-serif;
+}
+.content h2::before {
+  content: '';/*何も入れない*/
+  display: inline-block;/*忘れずに！*/
+  width: 80px;/*画像の幅*/
+  height: 50px;/*画像の高さ*/
+  background-image: url(image/panda.png);
+  background-size: contain;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+}
+
+/* -------------サイドバー----------- */
+.sub {
+  border: 2px #888 solid;
+  border-radius: 4px;
+}
+
+.sub_content {
+  box-shadow: -10px -10px 10px 0 rgba(167, 167, 167, 0.3);
+  box-shadow: 10px 10px 10px 0 rgba(167, 167, 167, 0.3);
+  margin: 10px 10px 40px 10px;
+  border-radius: 4px;
+}
+
+h3 {
+  font-size: 20px;
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #333;
+  margin: 0 40px 20px;
+  font-family: "Lucida Grande", "segoe UI", "ヒラギノ丸ゴ ProN W4", "Hiragino Maru Gothic ProN", Meiryo, Arial, sans-serif;
+}
+
+.sub p {
+  margin: 0 20px;
+  padding-bottom: 20px;
+}
+
+#page_top{
+  width: 15vw;
+  position: fixed;
+  right: 20px;
+  bottom: 0;
+}
+#page_top a{
+  position: relative;
+  display: block;
+  text-decoration: none;
+}
+/* ------------------フッター---------------- */
+footer {
+  text-align: center;
+  align-self: center;
+  font-size: 16px;
+}
+
+body::after {
+  content:"";
+  background-color: rgba(167, 167, 167, 0.3);
+  grid-column: 1 / -1;
+  grid-row: footer;
+  z-index: -1;
+}
+
+/* -------------スマホの設定----------- */
+@media(max-width:960px) {
+
+  body {
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
+  grid-template-columns: 10px 1fr 1fr 10px;
+  grid-template-rows:
+                [head] auto
+                [nav] auto
+                [contents] auto
+                [sub] auto
+                [footer] 50px
+}
+
+.content h2 {
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+.content h2::before {
+  content: '';/*何も入れない*/
+  display: inline-block;/*忘れずに！*/
+  width: 50px;/*画像の幅*/
+  height: 30px;/*画像の高さ*/
+  background-image: url(image/panda.png);
+  background-size: contain;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+}
+
+h3 {
+  font-size: 15px;
+}
+
+
+/* -------------パーツの配置---------------- */
+body > * {
+  grid-column: 2 / -2;
+}
+/* ヘッダー */
+header {
+  grid-row:head;
+  grid-column: 1 / -1;
+
+}
+/* ナビ */
+/* コンテンツ */
+.contents {
+  grid-row: contents;
+  grid-column: 2 / 4;
+}
+
+.sub {
+  grid-row: sub;
+  grid-column: 2 / 4;
+}
+/* フッター */
+footer {
+  grid-row: footer;
+  grid-column: 1 / -1;
+}
+
+.top_logo {
+  position: absolute;
+  top: 12vw;
+  right: 5vw;
+  line-height: 1em;
+}
+/* ------ナビの設定------- */
+nav {
+  background-color: rgb(183, 214, 163, 0.8);
+  display: block;
+  margin-top: 10px;
+}
+
+nav h1 {
+  padding-top: 20px;
+  border-bottom: 1px dashed #333;
+}
+nav ul {
+  list-style: none;
+  display: block;
+  padding-top:70px;
+  padding-bottom: 30px;
+
+}
+nav li a {
+  text-decoration: none;
+  padding: 15px 20px;
+  color: #333;
+  display: inline-block;
+}
+nav li a:hover{
+  background-color: rgb(183, 214, 163);
+}
+body {
+  overflow-x: hidden;
+}
+
+/* ハンバーガーメニュー */
+
+#nav-drawer {
+  position: absolute;
+  right:20px;
+  top:20px;
+  position: fixed;
+
+}
+
+/*チェックボックス等は非表示に*/
+.nav-unshown {
+  display:none;
+}
+
+/*アイコンのスペース*/
+#nav-open {
+  display: inline-block;
+  width: 30px;
+  height: 22px;
+  vertical-align: middle;
+}
+
+/*ハンバーガーアイコンをCSSだけで表現*/
+#nav-open span, #nav-open span:before, #nav-open span:after {
+  position: absolute;
+  height: 3px;/*線の太さ*/
+  width: 35px;/*長さ*/
+  border-radius: 3px;
+  background: #333;
+  display: block;
+  content: '';
+  cursor: pointer;
+}
+#nav-open span:before {
+  bottom: -8px;
+}
+#nav-open span:after {
+  bottom: -16px;
+}
+
+/*閉じる用の薄黒カバー*/
+#nav-close {
+  display: none;/*はじめは隠しておく*/
+  position: fixed;
+  z-index: 99;
+  top: 0;/*全体に広がるように*/
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0;
+  transition: .3s ease-in-out;
+}
+
+/*中身*/
+#nav-content {
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;/*最前面に*/
+  width: 90%;/*右側に隙間を作る（閉じるカバーを表示）*/
+  max-width: 330px;/*最大幅（調整してください）*/
+  height: 100%;
+  background: #fff;/*背景色*/
+  transition: .3s ease-in-out;/*滑らかに表示*/
+  -webkit-transform: translateX(-105%);
+  transform: translateX(-105%);/*左に隠しておく*/
+}
+
+/*チェックが入ったらもろもろ表示*/
+#nav-input:checked ~ #nav-close {
+  display: block;/*カバーを表示*/
+  opacity: .5;
+}
+
+#nav-input:checked ~ #nav-content {
+  -webkit-transform: translateX(0%);
+  transform: translateX(0%);/*中身を表示（右へスライド）*/
+  box-shadow: 6px 0 25px rgba(0,0,0,.15);
+}
+
+
+}
